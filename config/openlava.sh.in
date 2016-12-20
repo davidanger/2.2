@@ -1,0 +1,10 @@
+#
+# openlava.sh:
+#   Setup openlava environment variables
+#
+
+LSF_ENVDIR=@prefix@/etc
+PATH=$PATH:@prefix@/bin
+MANPATH=$MANPATH:@prefix@/share/man
+
+export LSF_ENVDIR PATH MANPATH

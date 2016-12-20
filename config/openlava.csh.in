@@ -1,0 +1,11 @@
+#
+# cshrc.lsf:
+#     Sets the C shell user environment for openlava commands
+#
+setenv LSF_ENVDIR @prefix@/etc
+set path = ($path @prefix@/bin)
+if ( ${?MANPATH} ) then
+  setenv MANPATH ${MANPATH}:@prefix@/share/man
+else
+  setenv MANPATH :@prefix@/share/man
+endif

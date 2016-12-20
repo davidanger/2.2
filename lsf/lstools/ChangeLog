@@ -1,0 +1,15 @@
+2012-06-29  Alberto Falzone  <alberto.falzone@gmail.com>
+
+    * lsrmhost.c: Fixed the "removed hostname" feedback.
+    * lsaddhost.c: Added the check of optind value to avoid a gethostbyname_
+      with a (null) argument. Also added to lsrmhost.c .     
+
+2011-05-08  David Bigagli  <david@davidbigagli.com>
+
+    * Makefile: Changed the install rule to use LAVA_BINDIR.
+
+2011-04-24  David Bigagli  <david@davidbigagli.com>
+
+    * Makefile: Introduced static link for the ls* commands in the lstools
+    directory.
+

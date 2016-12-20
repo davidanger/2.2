@@ -1,0 +1,51 @@
+Release Notes OpenLava
+======================
+
+2.2
+----
+
+-- Fix compile bug in callex.c and mbd.queue.c
+-- Fix the problem of host going periodically -ok.
+-- Fix timer initialization in LIM.
+-- Fix mbatchd to clean HOST_STAT_EXCLUSIVE when reply lsb.events.
+-- Fix job dependencies by name. The dependencies by name incorrectly
+   included all jobs belong to the user submitting the jobs.
+-- Fix bug in which every user can shutdown LIM.
+
+2.2 is a bug fix release.
+
+HIGHLIGHTS
+----------
+-- RPM files are no longer distributed, however they can still be built
+   from the tarball.
+-- When migrant hosts are added or removed, we must increment or
+   decrement the numHosts field in the struct clusterNode (myClusterPtr)
+   to allow the periodic master announcement to be sent to dynamic
+   nodes in the cluster on master lim restart.
+-- Don't call select in rd_select_() when the input file descriptor
+   is less than zero, as this causes a buffer overflow abort when
+   openlava is built with fortify for debian packages.
+-- Fix core dump in bjobs. Since 2.1 hostid start from 0.
+-- Fixed a typo in the lsf.cluster man page.
+-- Print correct pending reason when hostid is 0.
+-- Corrected HACKING file.
+-- make install no longer installs the configuration file, this avoids
+   overwriting production configuration files.
+-- Added -fPIC option to configure.ac - needed when compiling the object
+   code into a library for use in third party tools.
+-- Fixed bsub -I, now the the job data are correcty sent to the
+   user terminal and viceversa.
+-- Accept `DESTDIR` environment variable, allowing staged installs.
+-- Avoid announcing all LIMs at the same time.
+-- Install the config.h in include directory.
+-- Fixed lshosts -l core dump.
+-- Change the behaviour of the SBD SIGCHLD handler. By default, the
+   handler would sleep for 1 second for each child reaped, which would
+   cause long waits on machines with lots of slots when lots of jobs
+   finished at the same time (e.g. lots of short jobs). The default is
+   now to not sleep at all.
+-- Count cached memory as free memory.
+-- Added error exit message for missing ncurses.h
+-- Added MANPATH to shell profile scripts.
+-- Allow multiple hosttypes and hostmodels in the shared and cluster file.
+   LIM now can be configured with any type and model.

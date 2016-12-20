@@ -1,0 +1,67 @@
+.ds ]W %
+.ds ]L
+.nh
+.TH lsrmhost 1 "openlava Version 2.0 - Jan 2012"
+.br
+.SH NAME
+\fBlsrmhost\fR - Removes host
+.SH SYNOPSIS
+.BR
+.PP
+.PP
+\fBlsrmhost\fR \fIhostname\fR 
+.PP
+\fBlsrmhost\fR [\fB-h\fR | \fB-V\fR]
+.SH DESCRIPTION
+.BR
+.PP
+.PP
+\fB\fRRemoves a single host from a cluster. 
+.PP
+The hostname parameter is mandatory, and it must be listed into host list of cluster.
+It removes dynamically the specified host from the cluster.
+See lsf.cluster(5), lshosts(1). 
+.PP
+.SH OPTIONS
+.BR
+
+.TP 
+\fB-h\fR 
+
+.IP
+Prints command usage to stderr and exits. 
+
+
+.TP 
+\fB-V\fR 
+
+.IP
+Prints the openlava release version to stderr and exits. 
+
+.TP
+\fBhostname
+\fR
+.IP
+The hostname of the single host to be removed from the cluster. 
+This mandatory parameter must be listed and belonging to the cluster.
+
+.SH OUTPUT
+.PP
+
+.IP
+Displays the following:
+Host hostname removed.
+.PP
+In this case the host_name has been successfully removed from the cluster.
+.PP
+Otherwise, if host_name is not belonging to the cluster, displays the following:
+main: invalid hostname host_name
+
+
+.RE
+.SH SEE ALSO
+.BR
+.PP
+.PP
+lsfintro(1), ls_info(3), ls_policy(3), 
+ls_gethostinfo(3), lsf.cluster(5), lsf.shared(5)
