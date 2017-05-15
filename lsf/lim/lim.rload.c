@@ -100,7 +100,7 @@ idletime(void)
         sprintf(buf, "/dev/%s", u->ut_line);
 
         if (stat(buf, &statbuf) < 0) {
-            ls_syslog(LOG_ERR, "\
+            ls_syslog(LOG_DEBUG, "\
 %s: stats() failed %s %s %m", __func__, u->ut_user, u->ut_line);
             continue;
         }
@@ -109,8 +109,6 @@ idletime(void)
          */
         ++loginses;
 
-        ls_syslog(LOG_DEBUG, "\
-%s: %s %s %s %d", __func__, u->ut_user, u->ut_line, buf, t - statbuf.st_atime);
         l = t - statbuf.st_atime;
         if (l <= 0) {
             /* Somebody just send a char down the line

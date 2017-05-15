@@ -4,6 +4,8 @@ Release Notes OpenLava
 2.2
 ----
 
+-- In lsf/lim/lim.rload.c/idletime() change the logmask to LOG_DEBUG
+   is stat() of the tty device fails.
 -- Fix compile bug in callex.c and mbd.queue.c
 -- Fix the problem of host going periodically -ok.
 -- Fix timer initialization in LIM.
